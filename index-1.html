@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ബദരിയ്യ നഹ്‌വോരം | ക്യാമ്പ് ഗെയിംസ്</title>
+<style>
+:root{--ink:#102a56;--green:#1769d2;--gold:#ffd166;--cream:#f5f9ff;--red:#b93838}
+*{box-sizing:border-box}body{margin:0;font-family:"Noto Sans Malayalam",Arial,sans-serif;color:#fff;background:radial-gradient(circle at 18% 0,#2469c8,transparent 38%),linear-gradient(145deg,#071a3d,#123f83);min-height:100vh}
+.hero{text-align:center;padding:30px 15px 24px;border-bottom:1px solid #ffffff22;position:relative;overflow:hidden}
+.hero:before,.hero:after{content:"✦";position:absolute;color:#ffd16666;font-size:80px;top:20px}.hero:before{left:5%}.hero:after{right:5%}
+.brand{display:inline-block;border:1px solid var(--gold);border-radius:99px;padding:7px 15px;color:var(--gold);font-size:12px;letter-spacing:1px}
+h1{font-size:clamp(29px,7vw,52px);color:var(--gold);margin:14px 0 5px;text-shadow:0 4px 20px #0005}
+.arabic{direction:rtl;font-family:serif;font-size:clamp(22px,5vw,34px);margin:13px 0;color:#fff}
+.tagline{margin:0;color:#d6eee8}
+.shell{width:min(980px,94%);margin:18px auto 36px}
+.nav{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:14px}
+.nav button{border:1px solid #ffffff30;background:#ffffff12;color:#fff;border-radius:13px;padding:12px 5px;font-weight:bold;cursor:pointer}
+.nav button.active{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:14px}
+.metric{background:#ffffff12;border:1px solid #ffffff22;border-radius:14px;padding:10px;text-align:center}.metric small{display:block;color:#c8e3dc}.metric b{display:block;color:var(--gold);font-size:23px}
+.panel{display:none;background:var(--cream);color:var(--ink);padding:clamp(16px,4vw,30px);border-radius:22px;box-shadow:0 20px 45px #0003}.panel.active{display:block}
+h2{margin:4px 0 16px;font-size:clamp(22px,4.8vw,30px)}h3{margin:12px 0}
+.muted{color:#5d7580;line-height:1.8}.pill{display:inline-block;background:#e2f2e9;color:#08704f;padding:6px 10px;border-radius:99px;font-size:13px;font-weight:bold}
+.progress{height:8px;background:#e0e8e2;border-radius:99px;overflow:hidden;margin:12px 0 20px}.bar{height:100%;background:linear-gradient(90deg,#087f5b,#ffd166);width:0;transition:width .25s}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px}.answer{padding:14px;border:2px solid #d8e4dc;border-radius:13px;background:#fff;color:var(--ink);font:inherit;text-align:left;cursor:pointer}.answer:disabled{cursor:default}.answer.correct{background:#e0f7e9;border-color:#0a9869}.answer.wrong{background:#ffeded;border-color:#d54b4b}
+.feedback{display:none;padding:14px;border-radius:13px;margin-top:14px;line-height:1.8}.feedback.show{display:block}.good{background:#e1f7e9;color:#126448}.bad{background:#ffeded;color:#9d2929}
+.btn{border:0;border-radius:12px;padding:12px 17px;font:inherit;font-weight:bold;cursor:pointer;margin:4px 4px 4px 0}.primary{background:var(--green);color:#fff}.secondary{background:#e7eee9;color:var(--ink)}.danger{background:#ffe3e3;color:#9d2929}
+.wheel-area{text-align:center}.pointer{font-size:32px;color:#c74638;margin-bottom:-14px;position:relative;z-index:2}.wheel{width:min(300px,72vw);aspect-ratio:1;border:8px solid var(--gold);border-radius:50%;margin:0 auto 18px;background:conic-gradient(#087f5b 0 45deg,#ffd166 45deg 90deg,#274f7d 90deg 135deg,#ed8752 135deg 180deg,#087f5b 180deg 225deg,#ffd166 225deg 270deg,#274f7d 270deg 315deg,#ed8752 315deg);display:grid;place-items:center;box-shadow:0 12px 30px #0002;transition:transform 3.2s cubic-bezier(.12,.7,.15,1)}.wheel span{width:88px;height:88px;border-radius:50%;background:var(--cream);border:3px solid var(--ink);display:grid;place-items:center;font-weight:900}
+table{width:100%;border-collapse:collapse;margin-top:14px}th,td{text-align:left;padding:11px 8px;border-bottom:1px solid #dce6df}th{background:#e7f2ea}tr:first-child td:first-child{color:#b47b00;font-weight:bold}tr:nth-child(2) td:first-child{color:#687784;font-weight:bold}tr:nth-child(3) td:first-child{color:#a55d34;font-weight:bold}
+.field{padding:12px;border:1px solid #b8ccc0;border-radius:10px;font:inherit;width:min(100%,360px);margin:4px 4px 4px 0}
+.profile{background:linear-gradient(140deg,#0b4b47,#102b46);border:3px solid var(--gold);border-radius:20px;color:white;padding:22px;text-align:center}.profile .seal{width:95px;height:95px;border-radius:50%;border:3px solid var(--gold);display:grid;place-items:center;margin:0 auto 12px;font-size:37px;background:#ffffff12}.profile h2{color:var(--gold);margin:8px 0}.profile .arabic{color:#fff0b6}.profile p{line-height:1.8}.footer{text-align:center;color:#bddbd4;font-size:12px;line-height:1.8;padding:16px}
+@media(max-width:620px){.nav{grid-template-columns:1fr 1fr}.answers{grid-template-columns:1fr}.hero:before,.hero:after{font-size:42px}.metric{padding:8px 3px}.metric small{font-size:11px}}
+</style></head>
+<body>
+<header class="hero">
+<span class="brand">BADARIYYA • NAHWORAM CAMP</span>
+<h1>ബദരിയ്യ നഹ്‌വോരം</h1>
+<p class="tagline">അറിവിന്റെ കളരി • സൗഹൃദത്തിന്റെ ക്യാമ്പ് • വിജയത്തിന്റെ വേദി</p>
+<div class="arabic">مُخَيَّمُ بَدَرِيَّةَ نَحْوَرَام</div>
+</header>
+<main class="shell">
+<nav class="nav">
+<button class="active" data-panel="quiz">📚 ക്വിസ്</button><button data-panel="wheel">🎯 ശിക്ഷാ വീൽ</button><button data-panel="board">🏆 ലീഡർബോർഡ്</button><button data-panel="profile">🕌 ക്യാമ്പ് പ്രൊഫൈൽ</button>
+</nav>
+<section class="metrics"><div class="metric"><small>നിലവിലെ സ്കോർ</small><b id="score">0</b></div><div class="metric"><small>ചോദ്യം</small><b id="count">1/50</b></div><div class="metric"><small>തെറ്റിയ ഉത്തരം</small><b id="mistakes">0</b></div></section>
+<section class="panel active" id="home">
+<div class="profile">
+  <div class="seal">🌙</div>
+  <span class="brand">BADARIYYA • NAHWORAM CAMP</span>
+  <h2>ബദരിയ്യ നഹ്‌വോരം</h2>
+  <div class="arabic">مُخَيَّمُ بَدَرِيَّةَ نَحْوَرَام</div>
+  <p>അറിവിന്റെ കളരി • സൗഹൃദത്തിന്റെ ക്യാമ്പ് • വിജയത്തിന്റെ വേദി</p>
+  <p>📚 നഹ്‌വ് പഠിക്കാം &nbsp; 🎡 ചലഞ്ചുകൾ നേടാം &nbsp; 🏆 പോയിന്റുകൾ ശേഖരിക്കാം</p>
+  <p style="color:#ffe8a3"><b>Prepared by Sinan AP</b></p>
+</div>
+<h2 style="margin-top:22px">ക്യാമ്പ് ഗെയിമിലേക്ക് സ്വാഗതം! 💙</h2>
+<p class="muted">ക്വിസ് തുടങ്ങൂ, ശരിയുത്തരത്തിന് 10 പോയിന്റ് നേടൂ, ഉത്തരം തെറ്റിയാൽ സ്പിൻ വീലിൽ നിന്ന് രസകരമായ അറബി ചലഞ്ച് തിരഞ്ഞെടുക്കൂ.</p>
+<button class="btn primary" id="startQuiz">ക്വിസ് തുടങ്ങാം 📚</button>
+<button class="btn secondary" id="goWheel">സ്പിൻ വീൽ കാണാം 🎡</button>
+</section>
+<section class="panel" id="quiz">
+<span class="pill">NAHW CHALLENGE • 50 QUESTIONS</span><div class="progress"><div class="bar" id="bar"></div></div>
+<h2 id="question"></h2><div class="answers" id="answers"></div><div class="feedback" id="feedback" aria-live="polite"></div>
+<div style="margin-top:15px"><button class="btn primary" id="next" style="display:none">അടുത്ത ചോദ്യം →</button><button class="btn secondary" id="restart">വീണ്ടും കളിക്കാം ↻</button></div>
+<p class="muted">തെറ്റിയാൽ ചുവന്ന മാർക്ക് കാണിക്കും. ശരിയുത്തരം പഠിച്ച് അടുത്ത ചോദ്യത്തിലേക്ക് പോകാം.</p>
+</section>
+<section class="panel" id="wheel"><div class="wheel-area"><span class="pill">FUN PENALTY WHEEL</span><h2>🎯 തോറ്റവർക്കുള്ള ഫൺ സ്പിൻ വീൽ</h2><p class="muted">ഉത്തരം തെറ്റിയാൽ ഈ വീൽ തിരിച്ച് കിട്ടുന്ന രസകരമായ അറബി ചലഞ്ച് ചെയ്യാം. അപകടകരമോ അപമാനകരമോ ശരീരത്തിന് ബുദ്ധിമുട്ടുണ്ടാക്കുന്നതോ ആയ ശിക്ഷകളില്ല!</p><div class="pointer">▼</div><div class="wheel" id="wheelDisc"><span>SPIN!</span></div><button class="btn primary" id="spin">വീൽ തിരിക്കുക!</button><div class="feedback good" id="wheelResult"></div></div></section>
+<section class="panel" id="board"><span class="pill">TOP 3 • CAMP CHAMPIONS</span><h2>🏆 ലീഡർബോർഡ്</h2><p class="muted">ക്വിസ് പൂർത്തിയാക്കിയ ശേഷം പേര് ചേർക്കുക. ഒന്നാം, രണ്ടാം, മൂന്നാം സ്ഥാനങ്ങൾ പ്രത്യേകം കാണിക്കും. സ്കോർ ഈ ഫോണിലെ ബ്രൗസറിൽ സൂക്ഷിക്കും.</p><input class="field" id="playerName" maxlength="35" placeholder="വിദ്യാർഥിയുടെ പേര്"><button class="btn primary" id="saveScore">എന്റെ സ്കോർ ചേർക്കുക</button><table><thead><tr><th>സ്ഥാനം</th><th>വിദ്യാർഥി</th><th>സ്കോർ</th></tr></thead><tbody id="leaderRows"></tbody></table><button class="btn secondary" id="clearBoard">ലീഡർബോർഡ് മായ്ക്കുക</button></section>
+<section class="panel" id="profile"><div class="profile"><div class="seal">☪</div><span class="brand">CAMP PROFILE</span><h2>ബദരിയ്യ നഹ്‌വോരം</h2><div class="arabic">مُخَيَّمُ بَدَرِيَّةَ نَحْوَرَام</div><p>📚 നഹ്‌വ് പഠനം<br>🤝 സൗഹൃദവും കൂട്ടായ്മയും<br>🎯 വിജ്ഞാന ചലഞ്ചുകൾ<br>🏆 പരിശ്രമത്തിന് അംഗീകാരം</p><p style="color:#ffe8a3">تَعَلَّمُوا النَّحْوَ وَتَمَيَّزُوا<br>നഹ്‌വ് പഠിക്കൂ — മികവിലേക്ക് മുന്നേറൂ!</p></div><p class="muted">ഈ ക്യാമ്പ് പ്രൊഫൈൽ പോസ്റ്റർ സ്റ്റൈലിലാണ്. ക്യാമ്പിന്റെ ഔദ്യോഗിക ലോഗോ/ഫോട്ടോ ഉണ്ടെങ്കിൽ പിന്നീട് അതും ചേർക്കാം.</p></section>
+</main><footer class="footer">ബദരിയ്യ നഹ്‌വോരം ക്യാമ്പ് • പഠിക്കാം, കളിക്കാം, വളരാം!<br>Prepared by Sinan AP<br>ഈ HTML ഫയൽ പങ്കുവെച്ച് തുറക്കാം. എല്ലാവരുടെയും സ്കോർ ഒരേ ലീഡർബോർഡിൽ കാണാൻ പൊതുവായ ഹോസ്റ്റിംഗും ഓൺലൈൻ ഡാറ്റാബേസും വേണം.</footer>
+<script>
+const questions=[
+{q:"اَلْكَلِمَةُ എന്നതിന്റെ അർത്ഥം?",a:["വാക്ക്","വാക്യം","പുസ്തകം","അധ്യാപകൻ","കത്ത്"],c:0,w:"الكلمة = വാക്ക്."},
+{q:"അറബിയിലെ كلمة എത്ര തരമാണ്?",a:["രണ്ട്","മൂന്ന്","നാല്","അഞ്ച്","ആറ്"],c:1,w:"اسم، فعل، حرف — മൂന്ന് തരങ്ങൾ."},
+{q:"ഇവയിൽ اسم (നാമം) ഏത്?",a:["مِنْ","كَتَبَ","مُحَمَّدٌ","يَكْتُبُ","لَمْ"],c:2,w:"مُحَمَّدٌ ഒരു നാമമാണ്."},
+{q:"كَتَبَ ഏത് ക്രിയയാണ്?",a:["فعل ماضٍ","فعل مضارع","فعل أمر","حرف","اسم"],c:0,w:"كَتَبَ = അവൻ എഴുതി; فعل ماضٍ."},
+{q:"يَكْتُبُ ഏത് ക്രിയയാണ്?",a:["فعل ماضٍ","فعل مضارع","فعل أمر","اسم","حرف"],c:1,w:"يَكْتُبُ فعل مضارع ആണ്."},
+{q:"مِنْ ഏത് വിഭാഗത്തിൽപ്പെടുന്നു?",a:["اسم","فعل","حرف جر","صفة","فاعل"],c:2,w:"مِنْ ഒരു حرف جر ആണ്."},
+{q:"جَاءَ الطَّالِبُ എന്നതിൽ الطَّالِبُ എന്താണ്?",a:["فعل","فاعل","حرف","مفعول به","مبتدأ"],c:1,w:"ഇവിടെ الطَّالِبُ ആണ് فاعل."},
+{q:"ഇവയിൽ حرف جر ഏത്?",a:["إِلَى","رَجُلٌ","ذَهَبَ","يَذْهَبُ","قَلَمٌ"],c:0,w:"إِلَى ഒരു حرف جر ആണ്."},
+{q:"الطَّالِبُ എന്നതിലെ الـ എന്തിനെ സൂചിപ്പിക്കുന്നു?",a:["നിഷേധം","നിശ്ചിതത്വം","ഭൂതകാലം","ബഹുവചനം","ആജ്ഞ"],c:1,w:"الـ ഇവിടെ നിശ്ചിതത്വം (معرفة) സൂചിപ്പിക്കുന്നു."},
+{q:"فَعَلَ എന്നതിന്റെ പൊതുവായ അർത്ഥം?",a:["അവൻ ചെയ്തു","അവൻ ചെയ്യും","ചെയ്യൂ","ചെയ്യുന്നവൻ","അവൻ എഴുതുന്നു"],c:0,w:"فَعَلَ = അവൻ ചെയ്തു."},
+{q:"ഇവയിൽ فعل أمر ഏത്?",a:["اُكْتُبْ","كَتَبَ","يَكْتُبُ","كِتَابٌ","مِنْ"],c:0,w:"اُكْتُبْ = എഴുതുക; فعل أمر."},
+{q:"مَسْجِدٌ ഏത് വിഭാഗമാണ്?",a:["حرف","فعل","اسم","أداة نفي","فعل أمر"],c:2,w:"مَسْجِدٌ ഒരു നാമമാണ്."},
+{q:"هٰذَا كِتَابٌ എന്നതിൽ هٰذَا എന്താണ്?",a:["اسم إشارة","فعل","حرف جر","فاعل","مفعول"],c:0,w:"هٰذَا = ഈ/ഇത്; اسم إشارة."},
+{q:"الْوَلَدُ مُجْتَهِدٌ എന്ന വാക്യത്തിൽ الْوَلَدُ എന്താണ്?",a:["خبر","مبتدأ","فعل","حرف","مفعول به"],c:1,w:"ഇത് جملة اسمية ആണ്; الْوَلَدُ مبتدأ."},
+{q:"الْجَوُّ جَمِيلٌ എന്നതിൽ جَمِيلٌ എന്താണ്?",a:["مبتدأ","فاعل","خبر","حرف","فعل"],c:2,w:"جَمِيلٌ ആണ് خبر."},
+{q:"لَا എന്നത് സാധാരണയായി എന്തിനെ സൂചിപ്പിക്കുന്നു?",a:["നിഷേധം","ഭൂതകാലം","നാമം","ആജ്ഞ","ബഹുവചനം"],c:0,w:"لَا പല സാഹചര്യങ്ങളിലും നിഷേധം സൂചിപ്പിക്കുന്നു."},
+{q:"الطُّلَّابُ എന്നത് എന്താണ്?",a:["ഏകവചനം","ദ്വിവചനം","ബഹുവചനം","ക്രിയ","حرف"],c:2,w:"الطُّلَّابُ = വിദ്യാർഥികൾ; ബഹുവചനം."},
+{q:"قَلَمٌ എന്നതിന്റെ അർത്ഥം?",a:["പേന","വാതിൽ","വീട്","കസേര","പാഠം"],c:0,w:"قَلَمٌ = പേന."},
+{q:"ذَهَبَ مُحَمَّدٌ إِلَى الْمَدْرَسَةِ എന്നതിൽ ذَهَبَ എന്താണ്?",a:["اسم","فعل ماضٍ","حرف جر","خبر","مبتدأ"],c:1,w:"ذَهَبَ = അവൻ പോയി; فعل ماضٍ."},
+{q:"فِي الْبَيْتِ എന്നതിൽ فِي എന്താണ്?",a:["اسم","فعل","حرف جر","فاعل","خبر"],c:2,w:"فِي ഒരു حرف جر ആണ്."}
+,{q:"إِنَّ الطَّالِبَ مُجْتَهِدٌ എന്നതിൽ إِنَّ എന്താണ്?",a:["حرف توكيد ونصب","حرف جر","فعل ماضٍ","اسم إشارة","حرف نداء"],c:0,w:"إِنَّ حرف توكيد ونصب ആണ്."}
+,{q:"إِنَّ الطَّالِبَ مُجْتَهِدٌ എന്നതിൽ الطَّالِبَ എന്താണ്?",a:["اسم إنَّ","خبر إنَّ","فاعل","مبتدأ","مفعول به"],c:0,w:"إِنَّ യുടെ اسم منصوب ആണ് الطَّالِبَ."}
+,{q:"كَانَ الْجَوُّ جَمِيلًا എന്നതിൽ كَانَ എന്താണ്?",a:["فعل ناقص","حرف جر","اسم","فعل أمر","حرف عطف"],c:0,w:"كَانَ ഒരു فعل ناقص ആണ്."}
+,{q:"كَانَ الْجَوُّ جَمِيلًا എന്നതിൽ جَمِيلًا എന്താണ്?",a:["خبر كان","اسم كان","فاعل","مبتدأ","حرف"],c:0,w:"جَمِيلًا ആണ് خبر كان; ഇത് منصوب ആണ്."}
+,{q:"إِنَّ وأخواتها സാധാരണയായി എന്ത് ചെയ്യുന്നു?",a:["اسم منصوب, خبر مرفوع","اسم مرفوع, خبر منصوب","രണ്ടും مجرور","രണ്ടും مجزوم","ഒന്നും മാറ്റില്ല"],c:0,w:"إِنَّ وأخواتها اسم-നെ منصوب ആക്കും; خبر-നെ مرفوع ആയി വിടും."}
+,{q:"كَانَ وأخواتها സാധാരണയായി എന്ത് ചെയ്യുന്നു?",a:["اسم مرفوع, خبر منصوب","اسم منصوب, خبر مرفوع","രണ്ടും مجرور","രണ്ടും مجزوم","ഒന്നും മാറ്റില്ല"],c:0,w:"كَانَ وأخواتها اسم-നെ مرفوع ആക്കും; خبر-നെ منصوب ആക്കും."}
+,{q:"مَرَرْتُ بِزَيْدٍ എന്നതിൽ زَيْدٍ എന്തുകൊണ്ട് مجرور ആയി?",a:["بِ എന്ന حرف جر കാരണം","فاعل ആയതിനാൽ","مبتدأ ആയതിനാൽ","فعل ആയതിനാൽ","خبر ആയതിനാൽ"],c:0,w:"بِ ഒരു حرف جر ആണ്; അതിനു ശേഷം വന്ന زَيْدٍ مجرور ആണ്."}
+,{q:"الْكِتَابُ عَلَى الْمَكْتَبِ എന്നതിൽ عَلَى എന്താണ്?",a:["حرف جر","فعل","اسم","فاعل","خبر"],c:0,w:"عَلَى ഒരു حرف جر ആണ്."}
+,{q:"الْوَلَدَانِ എന്നത് ഏത് രൂപമാണ്?",a:["مثنى","مفرد","جمع تكسير","جمع مؤنث سالم","فعل"],c:0,w:"الْوَلَدَانِ ദ്വിവചനമായ مثنى ആണ്."}
+,{q:"مُعَلِّمُونَ ഏത് രൂപമാണ്?",a:["جمع مذكر سالم","مثنى","مفرد","جمع مؤنث سالم","فعل"],c:0,w:"مُعَلِّمُونَ جمع مذكر سالم ആണ്."}
+,{q:"مُسْلِمَاتٌ ഏത് രൂപമാണ്?",a:["جمع مؤنث سالم","جمع مذكر سالم","مثنى","مفرد","فعل"],c:0,w:"مُسْلِمَاتٌ جمع مؤنث سالم ആണ്."}
+,{q:"رَجُلٌ എന്നതിന്റെ ബഹുവചനം ഏത്?",a:["رِجَالٌ","رَجُلَانِ","رَجُلَاتٌ","رَاجِلٌ","رَجِيلٌ"],c:0,w:"رَجُلٌ എന്നതിന്റെ جمع تكسير ആണ് رِجَالٌ."}
+,{q:"هٰذِهِ بِنْتٌ എന്നതിൽ هٰذِهِ എന്താണ്?",a:["اسم إشارة للمفرد المؤنث","فعل ماضٍ","حرف جر","ضمير متصل","اسم موصول"],c:0,w:"هٰذِهِ ഏകവചന സ്ത്രീലിംഗത്തിനുള്ള اسم إشارة ആണ്."}
+,{q:"الَّذِي എന്നത് എന്താണ്?",a:["اسم موصول","اسم إشارة","حرف جر","فعل أمر","أداة نفي"],c:0,w:"الَّذِي എന്നത് اسم موصول ആണ്."}
+,{q:"مَنْ فِي الْفَصْلِ؟ എന്നതിൽ مَنْ എന്താണ്?",a:["اسم استفهام","فعل","حرف جر","خبر","مفعول به"],c:0,w:"مَنْ ഇവിടെ ചോദ്യം ചോദിക്കുന്ന اسم استفهام ആണ്."}
+,{q:"هَلْ ذَهَبَ مُحَمَّدٌ؟ എന്നതിൽ هَلْ എന്താണ്?",a:["حرف استفهام","اسم","فعل","حرف جر","صفة"],c:0,w:"هَلْ ഒരു ചോദ്യം സൂചിപ്പിക്കുന്ന حرف استفهام ആണ്."}
+,{q:"لَمْ يَكْتُبْ എന്നതിൽ لَمْ എന്ത് ചെയ്യുന്നു?",a:["فعل مضارع مجزوم ആക്കുന്നു","فعل ماضٍ ആക്കുന്നു","اسم منصوب ആക്കുന്നു","حرف جر ആക്കുന്നു","خبر مرفوع ആക്കുന്നു"],c:0,w:"لَمْ فعل مضارع-നെ مجزوم ആക്കുന്നു."}
+,{q:"لَنْ يَذْهَبَ എന്നതിൽ لَنْ എന്ത് ചെയ്യുന്നു?",a:["فعل مضارع منصوب ആക്കുന്നു","فعل مضارع مجزوم ആക്കുന്നു","اسم مجرور ആക്കുന്നു","فعل أمر ആക്കുന്നു","فاعل ആക്കുന്നു"],c:0,w:"لَنْ فعل مضارع-നെ منصوب ആക്കുന്നു."}
+,{q:"لَا تَكْذِبْ എന്നത് ഏത് തരത്തിലുള്ള لا ആണ്?",a:["لا الناهية","لا النافية فقط","حرف جر","حرف عطف","اسم إشارة"],c:0,w:"ഇവിടെ لا الناهية വിലക്കാണ് സൂചിപ്പിക്കുന്നത്; فعل مضارع مجزوم ആകുന്നു."}
+,{q:"اُكْتُبُوا ഏത് ക്രിയാരൂപമാണ്?",a:["فعل أمر للجمع","فعل ماضٍ للمفرد","فعل مضارع للمفرد","اسم جمع","حرف"],c:0,w:"اُكْتُبُوا = നിങ്ങൾ എല്ലാവരും എഴുതുക; فعل أمر."}
+,{q:"كَتَبْتُ എന്നതിന്റെ അർത്ഥം ഏത്?",a:["ഞാൻ എഴുതി","അവൻ എഴുതി","നീ എഴുതുന്നു","അവർ എഴുതും","എഴുതുക"],c:0,w:"كَتَبْتُ = ഞാൻ എഴുതി."}
+,{q:"يَذْهَبُونَ ഏത് രൂപമാണ്?",a:["فعل مضارع لجمع المذكر","فعل ماضٍ للمفرد","فعل أمر للمثنى","اسم","حرف جر"],c:0,w:"يَذْهَبُونَ പുരുഷ ബഹുവചനത്തിനുള്ള فعل مضارع ആണ്."}
+,{q:"جَلَسَ الطَّالِبُ فِي الْفَصْلِ ഏത് തരത്തിലുള്ള വാക്യമാണ്?",a:["جملة فعلية","جملة اسمية","شبه جملة മാത്രം","جملة استفهامية","جملة نداء"],c:0,w:"ക്രിയകൊണ്ട് തുടങ്ങുന്നതിനാൽ ഇത് جملة فعلية ആണ്."}
+,{q:"الْعِلْمُ نُورٌ ഏത് തരത്തിലുള്ള വാക്യമാണ്?",a:["جملة اسمية","جملة فعلية","جملة أمرية","جملة استفهامية","شبه جملة"],c:0,w:"നാമംകൊണ്ട് തുടങ്ങുന്നതിനാൽ ഇത് جملة اسمية ആണ്."}
+,{q:"جَاءَ الْمُعَلِّمُ എന്നതിൽ الْمُعَلِّمُ എന്താണ്?",a:["فاعل","مفعول به","حرف جر","خبر إنَّ","مضاف إليه"],c:0,w:"جَاءَ എന്ന ക്രിയയുടെ فاعل ആണ് الْمُعَلِّمُ."}
+,{q:"قَرَأَ الطَّالِبُ الْكِتَابَ എന്നതിൽ الْكِتَابَ എന്താണ്?",a:["مفعول به","فاعل","مبتدأ","خبر","حرف جر"],c:0,w:"വായിക്കപ്പെട്ട വസ്തുവായതിനാൽ الْكِتَابَ مفعول به ആണ്."}
+,{q:"بَابُ الْمَسْجِدِ എന്നതിൽ الْمَسْجِدِ എന്താണ്?",a:["مضاف إليه","فاعل","مبتدأ","فعل","خبر كان"],c:0,w:"بَابُ الْمَسْجِدِ എന്നതിൽ الْمَسْجِدِ مضاف إليه ആണ്."}
+,{q:"فِي الْمَسْجِدِ എന്നത് എന്താണ്?",a:["جار ومجرور","فعل وفاعل","مبتدأ وخبر","فعل أمر","جملة فعلية പൂർണ്ണമായി"],c:0,w:"فِي حرف جر ആണ്; الْمَسْجِدِ اسم مجرور ആണ്."}
+,{q:"يَا طَالِبُ എന്നതിൽ يَا എന്താണ്?",a:["حرف نداء","حرف جر","فعل ماضٍ","اسم موصول","أداة شرط"],c:0,w:"يَا വിളിക്കാനുള്ള حرف نداء ആണ്."}
+,{q:"وَ എന്നത് സാധാരണയായി എന്തിനാണ് ഉപയോഗിക്കുന്നത്?",a:["عطف / കൂട്ടിച്ചേർക്കൽ","ഭൂതകാലം മാത്രം","നിഷേധം മാത്രം","ചോദ്യം മാത്രം","നാമം സൂചിപ്പിക്കാൻ"],c:0,w:"وَ പലപ്പോഴും حرف عطف ആയി ഉപയോഗിക്കുന്നു."}
+
+];
+let index=0,score=0,miss=0,locked=false,finished=false;
+const $=id=>document.getElementById(id);
+function render(){locked=false;finished=false;const x=questions[index];$("score").textContent=score;$("mistakes").textContent=miss;$("count").textContent=`${index+1}/${questions.length}`;$("bar").style.width=index/questions.length*100+"%";$("question").textContent=x.q;$("feedback").className="feedback";$("feedback").textContent="";$("next").style.display="none";$("answers").innerHTML="";x.a.forEach((v,i)=>{let b=document.createElement("button");b.className="answer";b.textContent=String.fromCharCode(65+i)+". "+v;b.onclick=()=>choose(i,b);$("answers").appendChild(b)})}
+function choose(i,btn){if(locked)return;locked=true;let x=questions[index],bs=[...document.querySelectorAll(".answer")];bs.forEach(b=>b.disabled=true);let f=$("feedback");if(i===x.c){score+=10;btn.classList.add("correct");btn.textContent="✓ "+btn.textContent;f.className="feedback show good";f.innerHTML="✅ <b>ശരിയുത്തരം! +10 പോയിന്റ്</b><br>"+x.w}else{miss++;btn.classList.add("wrong");bs[x.c].classList.add("correct");f.className="feedback show bad";f.innerHTML="❌ <b>തെറ്റിപ്പോയി!</b><br>ഫൺ പെനാൽറ്റി: സ്പിൻ വീലിൽ ഒരു ചലഞ്ച് തിരഞ്ഞെടുത്ത് ചെയ്യാം 😄<br>ശരിയുത്തരം: "+x.a[x.c]+"<br>"+x.w} $("score").textContent=score;$("mistakes").textContent=miss;$("next").style.display="inline-block";$("next").textContent=index===questions.length-1?"ഫലം കാണുക 🏆":"അടുത്ത ചോദ്യം →"}
+function result(){finished=true;$("bar").style.width="100%";$("question").textContent="ക്വിസ് പൂർത്തിയായി! 🎉";$("answers").innerHTML="";$("feedback").className="feedback show good";$("feedback").innerHTML=`നിങ്ങളുടെ സ്കോർ: <b>${score}/${questions.length*10}</b><br>തെറ്റിയ ഉത്തരങ്ങൾ: <b>${miss}</b><br>${score>=150?"മാഷാ അല്ലാഹ്! ക്യാമ്പ് ചാമ്പ്യൻ പ്രകടനം!":"നല്ല ശ്രമം! വീണ്ടും കളിച്ച് സ്കോർ കൂട്ടാം."}`;$("next").style.display="none";$("count").textContent=questions.length+"/"+questions.length}
+$("next").onclick=()=>{if(index<questions.length-1){index++;render()}else result()};$("restart").onclick=()=>{index=0;score=0;miss=0;render()};
+document.querySelectorAll(".nav button").forEach(b=>b.onclick=()=>{document.querySelectorAll(".nav button").forEach(x=>x.classList.toggle("active",x===b));document.querySelectorAll(".panel").forEach(x=>x.classList.toggle("active",x.id===b.dataset.panel));if(b.dataset.panel==="board")drawBoard()});
+$("startQuiz").onclick=()=>document.querySelector('.nav button[data-panel="quiz"]').click();
+$("goWheel").onclick=()=>document.querySelector('.nav button[data-panel="wheel"]').click();
+const punishments=["ഒരു اسم അറബിയിൽ പറയുക","ഒരു فعل ماضٍ പറയുക","ഒരു حرف جر പറയുക","ഒരു അറബി ജുമ്‌ല പറയുക","ഒരു فعل مضارع ഉദാഹരണം പറയുക","ഒരു നഹ്‌വ് നിയമം ഓർത്തുപറയുക","ഒരു അറബി വാക്കിന്റെ അർത്ഥം പറയുക","ഒരു ചെറിയ അറബി വാക്യം മലയാളത്തിലേക്ക് വിവർത്തനം ചെയ്യുക","ഒരു അറബി വാക്ക് ഉപയോഗിച്ച് ജുമ്‌ല ഉണ്ടാക്കുക","إِنَّ ഉപയോഗിച്ച് ഒരു ഉദാഹരണം പറയുക","كَانَ ഉപയോഗിച്ച് ഒരു ഉദാഹരണം പറയുക","ഒരു اسم إشارة പറയുക","ഒരു اسم موصول പറയുക","ഒരു فعل أمر പറയുക","മൂന്ന് حرف جر പേരുകൾ പറയുക","അടുത്ത ചോദ്യത്തിന് 5 സെക്കൻഡിനുള്ളിൽ ഉത്തരം പറയാൻ ശ്രമിക്കുക","ഒരു കൂട്ടുകാരനോട് അറബി വാക്കിന്റെ അർത്ഥം ചോദിക്കുക","ക്യാമ്പിന്റെ പേര് അറബിയിൽ പറയുക","ഒരു അറബി വാക്ക് വ്യക്തമായി ഉച്ചരിക്കുക","ബോണസ് ചലഞ്ച്: ഒരു അധിക നഹ്‌വ് ചോദ്യം ഉത്തരം പറയുക"];
+let rotation=0;$("spin").onclick=()=>{$("spin").disabled=true;rotation+=1440+Math.random()*360;$("wheelDisc").style.transform=`rotate(${rotation}deg)`;setTimeout(()=>{const item=punishments[Math.floor(Math.random()*punishments.length)];$("wheelResult").className="feedback show good";$("wheelResult").textContent="🎯 നിങ്ങളുടെ ചലഞ്ച്: "+item;$("spin").disabled=false},3250)};
+function getBoard(){try{return JSON.parse(localStorage.getItem("nahwaramScores")||"[]")}catch(e){return []}}
+function drawBoard(){const list=getBoard().sort((a,b)=>b.score-a.score).slice(0,20);$("leaderRows").innerHTML="";if(!list.length){$("leaderRows").innerHTML='<tr><td colspan="3">ഇതുവരെ സ്കോർ ചേർത്തിട്ടില്ല.</td></tr>';return}list.forEach((r,i)=>{let tr=document.createElement("tr");[i===0?"🥇 ഒന്നാം":i===1?"🥈 രണ്ടാം":i===2?"🥉 മൂന്നാം":String(i+1),r.name,r.score].forEach(v=>{let td=document.createElement("td");td.textContent=v;tr.appendChild(td)});$("leaderRows").appendChild(tr)})}
+$("saveScore").onclick=()=>{if(!finished){alert("ആദ്യം ക്വിസ് പൂർത്തിയാക്കൂ!");return}const name=$("playerName").value.trim();if(!name){alert("വിദ്യാർഥിയുടെ പേര് എഴുതുക.");return}let list=getBoard();list.push({name,score});localStorage.setItem("nahwaramScores",JSON.stringify(list));$("playerName").value="";drawBoard();alert("സ്കോർ ചേർത്തു! 🏆")};
+$("clearBoard").onclick=()=>{if(confirm("ഈ ഫോണിലെ ലീഡർബോർഡ് മായ്ക്കട്ടേ?")){localStorage.removeItem("nahwaramScores");drawBoard()}};render();drawBoard();
+</script></body></html>
